@@ -1,4 +1,5 @@
 import statistics
+import matplotlib.pyplot as plt 
 AMZN = [
     [129.479996,129.820007,133.270004,136.449997,126.82,128.550003,126.279999],
     [123.529999,124.660004,122.190002,118.540001,117.309998,113.779999,115.150002],
@@ -18,12 +19,17 @@ META = [
     [129.820007,97.940002,99.199997,93.160004,95.199997,90.540001,88.910004],
     [90.790001,96.720001,96.470001,101.470001,111.870003,113.019997,114.220001,117.080002]
 ]
+AMZNStan=[]
 for row in AMZN:
     statistics.pstdev(row)
     print(statistics.pstdev(row))
-
+    AMZNStan.append(statistics.pstdev(row))
+METASTAN=[]
 for row in META:
     statistics.pstdev(row)
     print(statistics.pstdev(row))
+    METASTAN.append(statistics.pstdev(row))
 
-    
+plt.plot(AMZNStan)
+plt.plot(METASTAN)
+plt.show()
